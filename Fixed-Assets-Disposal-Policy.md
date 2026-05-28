@@ -56,34 +56,52 @@ Inventory items, consumables, and stock-in-trade are **excluded** from this poli
 8. Disposal of assets must comply with applicable **environmental, health, safety, and data-protection** laws (e.g., e-waste regulations, PDPA / GDPR).
 9. All proceeds from disposals shall be **deposited into the Company's official bank account** — no cash receipts by individuals.
 10. The Company shall conduct **periodic physical verification** of fixed assets at least annually to identify assets requiring disposal action.
+11. **Photographic evidence** of the asset (minimum two angles, including identifying tags / serial numbers) must accompany every Disposal Request Form.
+12. The **Disposal Request Form (DRF) shall be raised and routed through Microsoft Teams Approvals**, configured per business unit so that requests follow the BU-specific approval chain end-to-end with a full digital audit trail.
 
 ## 5. Roles and Responsibilities
 
 | Role | Responsibilities |
 | --- | --- |
-| **Asset Custodian / Department Head** | Initiates the Disposal Request Form (DRF); provides justification; ensures asset is physically available for verification; ensures data sanitization (for IT assets) is requested. |
-| **Department Manager** | Reviews and endorses DRFs originating in the department; confirms operational necessity of disposal. |
+| **User (Asset Custodian)** | Raises the Disposal Request Form (DRF) in Microsoft Teams; uploads asset photographs (≥ 2 angles incl. tag/serial); provides justification; ensures asset is physically available for verification; requests data sanitization (for IT assets). |
+| **User Department Head** | First-line endorser in Teams; confirms operational necessity, no internal redeployment available, and accuracy of asset details and photos. |
+| **Finance Business Partner (FBP)** | Reviewer in Teams; validates FAR record, NBV, encumbrance / lease / grant status, accounting impact, choice of disposal method, and adequacy of valuation evidence. |
+| **Business Unit General Manager (BU GM)** | Final approver for the business unit; accountable for value recovery and financial impact within the BU. |
 | **IT Department** | Performs and certifies data sanitization or destruction for all data-bearing assets; provides technical assessment for IT equipment. |
-| **Finance / Fixed Asset Accountant** | Verifies asset existence in FAR, computes NBV, confirms accounting treatment, records disposal entries, removes asset from FAR, reconciles FAR to GL. |
-| **Procurement Department** | Sources buyers, obtains quotations, coordinates auction/tender, and executes sale agreements. |
-| **Internal Audit** | Independently reviews compliance with this policy on a periodic / sample basis; reports findings to the Audit Committee. |
-| **Disposal Committee** | Reviews and recommends disposals above the threshold defined in Section 6. Composition: CFO (Chair), Head of Procurement, Head of relevant business unit, Internal Audit (observer). |
-| **CFO / Approving Authority** | Provides final approval based on the Authority Matrix. |
+| **Finance — Fixed Asset Accountant** | Records disposal entries, removes asset from FAR, reconciles FAR to GL, prepares monthly disposal schedule. |
+| **Procurement Department** | Sources buyers, obtains quotations, coordinates auction / tender, and executes sale agreements. |
+| **Disposal Committee** | Reviews disposals above Tier 3 threshold. Composition: CFO (Chair), Head of Procurement, relevant BU GM, Internal Audit (observer). |
+| **CFO / CEO / Board** | Escalated approval per tier in Section 6. |
+| **Internal Audit** | Independent periodic review of compliance; reports findings to the Audit Committee. |
 | **External Auditor** | Reviews material disposals as part of statutory audit procedures. |
 
 ## 6. Approval Matrix
 
-### 6.1 Standard Approval Matrix (by Value)
+### 6.1 Standard Approval Chain
 
-Approval thresholds are based on the **higher of Net Book Value (NBV) or estimated fair / market value** of the asset. Where multiple assets are disposed of in a single transaction, the **aggregate** value applies. Splitting a disposal to bring it under a lower threshold is **strictly prohibited**.
+Every disposal — regardless of value — flows through the following **standard approval chain**:
 
-| Tier | NBV / Fair Value (whichever is higher) | Initiator | Endorser | Recommender | Final Approver | Additional Requirement |
+> **User (Custodian) → User Department Head → Finance Business Partner (FBP) → Business Unit General Manager (BU GM) → (Escalation: CFO / CEO / Board for high-value tiers)**
+
+| Approver | Role in the Chain |
+| --- | --- |
+| **User (Custodian)** | Initiates the Disposal Request Form (DRF) in Microsoft Teams; attaches asset photos, justification, and proposed method. |
+| **User Department Head** | First-line endorser; confirms operational necessity, no alternative redeployment, and accuracy of asset details. |
+| **Finance Business Partner (FBP)** | Validates FAR record, NBV, encumbrance check, accounting impact, and that the disposal method and valuation evidence are appropriate. |
+| **Business Unit General Manager (BU GM)** | Approves on behalf of the business unit; accountable for financial impact and value recovery. |
+| **CFO / CEO / Board** | Escalated final approval based on tier thresholds in Section 6.2. |
+
+### 6.2 Tiered Approval Matrix (by Value)
+
+Approval thresholds are based on the **higher of Net Book Value (NBV) or estimated fair / market value**. Where multiple assets are disposed of in a single transaction, the **aggregate** value applies. Splitting a disposal to bring it under a lower threshold is **strictly prohibited**.
+
+| Tier | NBV / Fair Value (whichever is higher) | Initiator | Endorser | Reviewer | Final Approver | Additional Requirement |
 | --- | --- | --- | --- | --- | --- | --- |
-| **T1** | ≤ USD 1,000 | Custodian | Department Head | Finance Manager | Finance Manager | One quotation (if sold) |
-| **T2** | > USD 1,000 to ≤ USD 10,000 | Custodian | Department Head | Finance Manager | Finance Director / Controller | Two quotations (if sold) |
-| **T3** | > USD 10,000 to ≤ USD 50,000 | Custodian | Department Head | Disposal Committee | CFO | Three quotations or tender; Committee minutes |
-| **T4** | > USD 50,000 to ≤ USD 250,000 | Custodian | CFO | Disposal Committee | CEO | Sealed tender / auction; independent valuation if specialized asset |
-| **T5** | > USD 250,000 | Custodian | CEO | Audit Committee | Board of Directors | Independent valuation **mandatory**; tender required |
+| **T1** | ≤ USD 1,000 | User (Custodian) | User Dept Head | FBP | **BU GM** | One quotation (if sold); asset photos mandatory |
+| **T2** | > USD 1,000 to ≤ USD 10,000 | User (Custodian) | User Dept Head | FBP | **BU GM** | Two quotations (if sold); asset photos mandatory |
+| **T3** | > USD 10,000 to ≤ USD 50,000 | User (Custodian) | User Dept Head + BU GM | FBP + Disposal Committee | **CFO** | Three quotations or tender; Committee minutes; asset photos |
+| **T4** | > USD 50,000 to ≤ USD 250,000 | User (Custodian) | User Dept Head + BU GM | FBP + CFO + Disposal Committee | **CEO** | Sealed tender / auction; independent valuation if specialized asset |
+| **T5** | > USD 250,000 | User (Custodian) | BU GM + CEO | FBP + Audit Committee | **Board of Directors** | Independent valuation **mandatory**; tender required |
 
 ### 6.2 Special-Case Approvals (override the standard matrix)
 
@@ -121,48 +139,67 @@ The appropriate method shall be selected by considering value recovery, time, ri
 
 ## 8. Disposal Process
 
-The end-to-end disposal process consists of **eight (8) sequential steps**. Each step has a defined **owner**, **deliverable**, and **target turnaround time (TAT)**.
+The end-to-end disposal process runs through **Microsoft Teams Approvals**, with one workflow configured per business unit so that requests automatically route to the BU-specific User Department Head, FBP, and BU GM. Each step has a defined **owner**, **deliverable**, and **target turnaround time (TAT)**.
 
 | Step | Activity | Owner | Deliverable | Target TAT |
 | --- | --- | --- | --- | --- |
-| 1 | Identification & Request | Custodian | Completed DRF | 2 working days |
-| 2 | Endorsement | Department Head | Endorsed DRF | 2 working days |
-| 3 | Verification | Finance (FA Accountant) | FAR extract, NBV, encumbrance check | 3 working days |
+| 1 | Identification & Request (with asset photos) | User (Custodian) | DRF submitted in Teams with photos attached | 2 working days |
+| 2 | Departmental Endorsement | User Dept Head | Approved step in Teams | 2 working days |
+| 3 | Finance Review | FBP | FAR extract, NBV, encumbrance check; approved step | 3 working days |
 | 4 | Valuation / Quotation | Procurement | Quotations / tender / valuation report | 5–15 working days |
-| 5 | Approval | Per Approval Matrix | Approved DRF, Committee minutes | 5–10 working days |
-| 6 | Execution & Handover | Procurement / Custodian | Sale invoice, receipt of funds, certificates | 10 working days |
-| 7 | Recording | Finance | Journal voucher, updated FAR | 3 working days from execution |
+| 5 | BU / Escalated Approval | BU GM (→ CFO / CEO / Board per tier) | Approved DRF; Committee minutes (if applicable) | 5–10 working days |
+| 6 | Execution & Handover | Procurement / Custodian | Sale invoice, receipt of funds, certificates, post-removal photos | 10 working days |
+| 7 | Recording | Fixed Asset Accountant | Journal voucher, updated FAR | 3 working days from execution |
 | 8 | Reconciliation & Reporting | Finance / Internal Audit | Monthly disposal report, reconciliation | Monthly |
+
+### 8.0 Microsoft Teams Approvals — Configuration per Business Unit
+
+A separate **Teams Approval flow** is set up for each business unit. The flow:
+
+1. Is launched by the user from **Teams → Approvals → New approval request → "Fixed Asset Disposal — [BU Name]"**.
+2. Enforces a **structured form** capturing all mandatory DRF fields (see Appendix A) and requires:
+   - **Asset photographs** (minimum 2 angles, including a close-up of the asset tag / serial number).
+   - **Damage / condition photos** where applicable.
+3. Auto-routes sequentially: **User Dept Head → FBP → BU GM**, with escalation logic to CFO / CEO / Board for Tier 3 and above.
+4. Captures **digital signatures, time-stamps, and comments** at each approval node, generating a tamper-evident audit trail.
+5. On final approval, the approved DRF (PDF) is **auto-saved to the BU's SharePoint Disposal Library** and a notification is sent to the Fixed Asset Accountant.
+6. Rejection or "request for information" returns the flow to the previous approver with comments visible to all parties.
+7. The flow owner (typically the FBP for each BU) maintains the approver list and updates it within five (5) working days of any role change.
 
 ### 8.1 Step 1 — Identification and Request
 
-1. The Custodian identifies assets requiring disposal through **routine use, annual physical verification, technical assessment, replacement programmes**, or **damage reports**.
-2. The Custodian completes the **Disposal Request Form (DRF)** capturing:
+1. The User (Custodian) identifies assets requiring disposal through **routine use, annual physical verification, technical assessment, replacement programmes**, or **damage reports**.
+2. The User raises the **Disposal Request Form (DRF) in Microsoft Teams** for their business unit, capturing:
    - Asset description, asset tag / serial number, FAR reference
    - Location, custodian, current condition
    - Original cost, acquisition date (if known)
-   - Detailed reason for disposal (with photographs for damaged / scrap items)
+   - Detailed reason for disposal
    - Proposed disposal method
    - Estimated proceeds (if any) and proposed buyer (if known)
-3. For IT assets, the request must flag whether the asset contains **company or personal data**.
+3. **Mandatory photographic evidence** is uploaded with every DRF:
+   - **Minimum two angles** of the asset showing its overall condition.
+   - **Close-up of the asset tag / serial number** so it can be matched to the FAR.
+   - **Close-up of damage or defect** where the reason is "damaged" or "uneconomic to repair".
+   - Photos must be **dated** (auto from device EXIF) and uploaded in colour at reasonable resolution.
+4. For IT assets, the request must flag whether the asset contains **company or personal data**.
 
 ### 8.2 Step 2 — Departmental Endorsement
 
-4. The Department Head reviews and confirms:
-   - The asset is genuinely surplus / unfit / uneconomic to repair.
-   - No alternative redeployment is feasible within the department.
+5. The User Department Head reviews the DRF in Teams and confirms:
+   - The asset is genuinely surplus / unfit / uneconomic to repair (verified against the uploaded photos).
+   - No alternative redeployment is feasible within the department or BU.
    - The proposed method is appropriate.
-5. The endorsed DRF is logged in the **Disposal Register** (sequentially numbered) and submitted to Finance.
+6. The endorsed DRF is auto-logged in the **Disposal Register** (sequentially numbered, BU-prefixed) maintained in SharePoint, with a notification sent to the FBP.
 
-### 8.3 Step 3 — Finance Verification
+### 8.3 Step 3 — Finance Review (FBP)
 
-6. The Fixed Asset Accountant verifies:
+7. The Finance Business Partner verifies:
    - Asset existence in the FAR and physical existence (sighting required for high-value items).
    - Current NBV, accumulated depreciation, and any impairment booked.
    - **Encumbrance check** — pledged as security, subject to finance lease, government grant condition, customs bond, warranty obligation.
    - **Insurance check** — confirm asset is removed from insurance schedule post-disposal.
    - **Tax check** — VAT/GST treatment, capital allowance clawback (if any).
-7. If the asset is data-bearing, Finance routes the DRF to **IT for data sanitization**:
+8. If the asset is data-bearing, the FBP routes the DRF to **IT for data sanitization**:
    - Wiping per NIST 800-88 / equivalent standard, or physical destruction (shredding, degaussing).
    - IT issues a **Data Sanitization / Destruction Certificate** referencing asset serial numbers.
 
@@ -182,7 +219,7 @@ The end-to-end disposal process consists of **eight (8) sequential steps**. Each
 
 ### 8.5 Step 5 — Approval
 
-11. The complete disposal package (DRF, endorsements, FAR extract, sanitization certificate, valuation / quotations, bid evaluation) is routed sequentially per the **Approval Matrix (Section 6)**.
+11. The complete disposal package (DRF with photos, endorsements, FAR extract, sanitization certificate, valuation / quotations, bid evaluation) flows automatically in Teams to the **BU GM** for final approval at Tier 1 and Tier 2, with **escalation to CFO / CEO / Board** for Tier 3 and above per Section 6.
 12. Disposal Committee meetings (where required) must produce **minutes** identifying attendees, declarations of interest, options considered, and recommendation.
 13. The Board / Audit Committee approval (Tier 5) requires a **board paper** including financial impact, gain/loss, fair-value evidence, and counterparty due diligence.
 
@@ -200,49 +237,132 @@ The end-to-end disposal process consists of **eight (8) sequential steps**. Each
     - Recipient charity provides registration documents and a **written acknowledgement** on its letterhead.
 17. **For write-offs:**
     - Police report (theft / loss), insurance correspondence, technical assessment, and witnessed destruction record are attached.
-18. **Physical removal** of all assets with NBV / fair value > USD 10,000 must be **witnessed by Finance or Internal Audit**, with photographs taken.
-19. Asset tags, decals, and identifying marks (logos, registration numbers, vehicle plates) must be removed before release.
+18. **Post-removal photos** of the asset (after tag removal / loaded onto buyer's vehicle / at the scrap yard, as applicable) are uploaded back into the Teams DRF record as part of the execution evidence.
+19. **Physical removal** of all assets with NBV / fair value > USD 10,000 must be **witnessed by Finance or Internal Audit**, with photographs taken.
+20. Asset tags, decals, and identifying marks (logos, registration numbers, vehicle plates) must be removed before release.
 
 ### 8.7 Step 7 — Recording and Derecognition
 
-20. Within **three (3) working days** of execution, Finance posts the disposal entry:
+21. Within **three (3) working days** of execution, the Fixed Asset Accountant posts the disposal entry (see Section 9 for double-entry templates):
     - Charges depreciation up to the date of disposal.
-    - Records proceeds, derecognises cost and accumulated depreciation, books gain/loss (see Section 9).
+    - Records proceeds, derecognises cost and accumulated depreciation, books gain/loss.
     - Transfers any related revaluation surplus from reserves to retained earnings.
     - Updates VAT / GST output records.
-21. The Fixed Asset Accountant updates the FAR — status changed to **"Disposed"**, including disposal date, method, proceeds, gain/loss, buyer reference, and approval reference.
-22. The complete disposal file is archived per Section 11.
+22. The Fixed Asset Accountant updates the FAR — status changed to **"Disposed"**, including disposal date, method, proceeds, gain/loss, buyer reference, and approval reference.
+23. The complete disposal file (including all photos) is archived per Section 11.
 
 ### 8.8 Step 8 — Reconciliation, Reporting, and Post-Disposal Review
 
-23. At month-end, Finance reconciles the FAR to the GL and confirms all approved disposals have been processed and no unapproved entries exist.
-24. A **monthly Disposal Schedule** is prepared and reviewed by the CFO.
-25. Internal Audit performs **sample testing** of disposals on a quarterly basis.
-26. A **post-disposal review** is conducted on Tier 4/5 transactions within 60 days, comparing actual proceeds against estimates and identifying lessons learned.
+24. At month-end, Finance reconciles the FAR to the GL and confirms all approved disposals have been processed and no unapproved entries exist.
+25. A **monthly Disposal Schedule** is prepared and reviewed by the CFO.
+26. Internal Audit performs **sample testing** of disposals on a quarterly basis.
+27. A **post-disposal review** is conducted on Tier 4/5 transactions within 60 days, comparing actual proceeds against estimates and identifying lessons learned.
 
 ## 9. Accounting Treatment
 
-Disposals are accounted for in accordance with **IAS 16 / IFRS 16** (or applicable local GAAP):
+Disposals are accounted for in accordance with **IAS 16 / IFRS 16** (or applicable local GAAP). The Fixed Asset Accountant must always:
 
-### 9.1 General Entries
+1. Run depreciation **up to the date of disposal**.
+2. Derecognise the asset's **cost and accumulated depreciation** in full.
+3. Record any **proceeds, VAT/GST, and gain/loss** in the period of disposal.
 
-Upon disposal of an asset:
+### 9.1 Step A — Pre-Disposal Depreciation Catch-Up
+
+Before posting the disposal, charge depreciation for the partial period:
 
 ```
-Dr  Accumulated Depreciation          (full accumulated depreciation)
-Dr  Cash / Bank / Receivable          (sale proceeds, if any)
-Dr  Loss on Disposal of Fixed Assets  (if proceeds < NBV)
-    Cr  Fixed Asset — Cost             (original cost)
-    Cr  Gain on Disposal of Fixed Assets (if proceeds > NBV)
+Dr  Depreciation Expense              X
+    Cr  Accumulated Depreciation          X
 ```
 
-### 9.2 Specific Considerations
+### 9.2 Step B — Disposal Entries by Scenario
 
-- **Depreciation** shall be charged up to the **date of disposal** (pro-rated by month or day per Company convention) before the disposal entry is posted.
+The following illustrative examples assume:
+- Original cost = **USD 10,000**
+- Accumulated depreciation at disposal date = **USD 8,000**
+- Net Book Value (NBV) = **USD 2,000**
+
+#### Scenario 1 — Sale at a Gain (proceeds USD 3,000, VAT 10%)
+
+```
+Dr  Cash / Bank                          3,300
+Dr  Accumulated Depreciation             8,000
+    Cr  Fixed Asset — Cost                  10,000
+    Cr  Gain on Disposal of Fixed Assets     1,000
+    Cr  Output VAT / GST Payable               300
+```
+
+#### Scenario 2 — Sale at a Loss (proceeds USD 1,500, VAT 10%)
+
+```
+Dr  Cash / Bank                          1,650
+Dr  Accumulated Depreciation             8,000
+Dr  Loss on Disposal of Fixed Assets       500
+    Cr  Fixed Asset — Cost                  10,000
+    Cr  Output VAT / GST Payable               150
+```
+
+#### Scenario 3 — Scrap / Write-Off (no proceeds)
+
+```
+Dr  Accumulated Depreciation             8,000
+Dr  Loss on Disposal of Fixed Assets     2,000
+    Cr  Fixed Asset — Cost                  10,000
+```
+
+#### Scenario 4 — Trade-In (trade-in value USD 2,500 against new asset of USD 12,000)
+
+```
+Dr  Fixed Asset — New (cost)            12,000
+Dr  Accumulated Depreciation             8,000
+    Cr  Fixed Asset — Old (cost)            10,000
+    Cr  Gain on Disposal of Fixed Assets        500
+    Cr  Cash / Accounts Payable               9,500
+```
+
+#### Scenario 5 — Donation (NBV transferred, no proceeds)
+
+```
+Dr  Accumulated Depreciation             8,000
+Dr  Donation Expense                     2,000
+    Cr  Fixed Asset — Cost                  10,000
+```
+
+#### Scenario 6 — Loss / Theft with Insurance Recovery (insurance claim USD 1,800)
+
+```
+Dr  Insurance Receivable                 1,800
+Dr  Accumulated Depreciation             8,000
+Dr  Loss on Disposal of Fixed Assets       200
+    Cr  Fixed Asset — Cost                  10,000
+```
+
+Upon receipt of the insurance proceeds:
+
+```
+Dr  Cash / Bank                          1,800
+    Cr  Insurance Receivable                 1,800
+```
+
+#### Scenario 7 — Revalued Asset (transfer of revaluation surplus)
+
+Where the disposed asset previously had a revaluation surplus of USD 1,500 in reserves, in addition to the normal disposal entry post:
+
+```
+Dr  Revaluation Reserve                  1,500
+    Cr  Retained Earnings                     1,500
+```
+
+*Note: this transfer is made directly through equity and does **not** flow through profit or loss.*
+
+### 9.3 Specific Considerations
+
+- **Depreciation** is charged up to the **date of disposal** (pro-rated by month or day per Company convention) before the disposal entry is posted.
 - **Gains and losses** on disposal are recognized in the income statement in the period of disposal under "Other Income" or "Other Operating Expenses".
-- **Revalued assets** — any revaluation surplus attributable to the disposed asset is transferred directly from the revaluation reserve to retained earnings (not through profit or loss).
-- **VAT / GST / Sales Tax** — applicable indirect taxes must be computed on the sale proceeds and remitted to the tax authority.
+- **VAT / GST / Sales Tax** must be computed on the sale proceeds and remitted to the tax authority — verify the indirect-tax treatment of second-hand asset sales in the relevant jurisdiction.
+- **Capital allowance / tax depreciation** clawback (balancing charge or allowance) must be assessed by the Tax team and disclosed in the period's tax computation.
 - **Government grants** — disposal of an asset funded by a government grant may trigger refund obligations; Finance must check grant terms before disposal.
+- **Foreign currency** — where proceeds are received in foreign currency, translate at the spot rate on the date of disposal; any subsequent FX difference on the receivable is recognised in P&L.
 
 ## 10. Internal Controls and Control Measures
 
@@ -289,22 +409,23 @@ The following control framework is **mandatory** and shall not be circumvented u
 
 ### 10.4 Segregation of Duties Matrix
 
-| Activity | Custodian | Dept. Head | Finance (FA Accountant) | Finance Manager | Procurement | IT | CFO | Internal Audit |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Initiate DRF | R | A | — | — | — | — | — | — |
-| Endorse request | — | R | — | — | — | — | — | — |
-| FAR verification | — | — | R | A | — | — | — | — |
-| Data sanitization | — | — | — | — | — | R | — | — |
-| Obtain quotations / tender | — | — | — | — | R | — | A | — |
-| Approve disposal | — | — | — | A/R* | — | — | A/R* | — |
-| Receive proceeds (Treasury) | — | — | — | R | — | — | A | — |
-| Post journal entry | — | — | R | A | — | — | — | — |
-| Update FAR | — | — | R | A | — | — | — | — |
-| Reconcile FAR to GL | — | — | R | A | — | — | A | — |
-| Witness physical removal | — | — | R | — | — | — | — | R |
-| Independent review / audit | — | — | — | — | — | — | — | R |
+| Activity | User | Dept Head | FBP | BU GM | FA Accountant | Procurement | IT | CFO | Internal Audit |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Initiate DRF (Teams) + upload photos | R | — | — | — | — | — | — | — | — |
+| Endorse request | — | R | — | — | — | — | — | — | — |
+| FAR / NBV / encumbrance verification | — | — | R | — | A | — | — | — | — |
+| Data sanitization | — | — | — | — | — | — | R | — | — |
+| Obtain quotations / tender | — | — | A | — | — | R | — | — | — |
+| Approve disposal (T1–T2) | — | — | — | A/R | — | — | — | — | — |
+| Approve disposal (T3+) | — | — | — | R | — | — | — | A/R* | — |
+| Receive proceeds (Treasury) | — | — | A | — | R | — | — | A | — |
+| Post journal entry | — | — | A | — | R | — | — | — | — |
+| Update FAR | — | — | A | — | R | — | — | — | — |
+| Reconcile FAR to GL | — | — | A | — | R | — | — | A | — |
+| Witness physical removal | — | — | R | — | — | — | — | — | R |
+| Independent review / audit | — | — | — | — | — | — | — | — | R |
 
-*R = Responsible, A = Accountable. The approver depends on the tier per Section 6.*
+*R = Responsible, A = Accountable. For Tier 4 and Tier 5, final approval escalates to CEO / Board per Section 6.*
 
 ### 10.5 Key Risk Indicators (KRIs)
 
@@ -323,7 +444,8 @@ Finance shall monitor the following KRIs and report exceptions to the CFO and Au
 
 The following documents constitute the **Disposal File** and must be retained:
 
-- Disposal Request Form (DRF) with all approvals
+- Disposal Request Form (DRF) with all approvals — exported from Teams as PDF
+- **Asset photographs** (pre-disposal: minimum 2 angles + tag close-up; post-removal photos where applicable)
 - Quotations / tender documents / valuation reports
 - Disposal Committee minutes (where applicable)
 - Sale invoice and proof of payment receipt
@@ -361,10 +483,11 @@ This policy shall be reviewed **annually** by the Finance Department and approve
 
 | Field | Detail |
 | --- | --- |
-| DRF Number | (auto-generated) |
+| DRF Number | (auto-generated by Teams, BU-prefixed) |
+| Business Unit | |
 | Date | |
 | Requesting Department | |
-| Custodian Name | |
+| User (Custodian) Name | |
 | Asset Tag / Serial No. | |
 | FAR Reference | |
 | Asset Description | |
@@ -373,24 +496,27 @@ This policy shall be reviewed **annually** by the Finance Department and approve
 | Original Cost | |
 | Accumulated Depreciation | |
 | Net Book Value | |
+| **Asset Photographs** | ☐ Overall view 1  ☐ Overall view 2  ☐ Tag/Serial close-up  ☐ Damage close-up (if applicable) |
 | Reason for Disposal | ☐ Obsolete  ☐ Damaged  ☐ End of useful life  ☐ Replaced  ☐ Surplus  ☐ Lost/Stolen  ☐ Other: ___ |
 | Proposed Disposal Method | ☐ Sale  ☐ Auction/Tender  ☐ Trade-in  ☐ Scrap  ☐ Donation  ☐ Transfer  ☐ Write-off |
 | Estimated Proceeds | |
 | Data Sanitization Required? | ☐ Yes  ☐ No  (IT Cert No.: ___) |
-| Custodian Signature | |
-| Department Head Endorsement | |
-| Finance Verification | |
-| Approver Signature (per Authority Matrix) | |
+| User Submission (Teams) | |
+| User Department Head Endorsement | |
+| FBP Review | |
+| BU GM Approval | |
+| Escalation Approval (CFO / CEO / Board, per tier) | |
 
-## Appendix B — Disposal Workflow Summary
+## Appendix B — Disposal Workflow Summary (Microsoft Teams Approvals, per BU)
 
-1. Custodian → completes DRF
-2. Department Head → endorses
-3. Finance → verifies FAR, NBV, encumbrances
-4. IT (if applicable) → data sanitization certificate
-5. Procurement (if sale) → obtain quotations / run tender
-6. Disposal Committee (if applicable) → review and recommend
-7. Approver (per Authority Matrix) → approves
-8. Procurement / Custodian → execute disposal, collect proceeds, obtain certificates
-9. Finance → post entries, update FAR, archive file
-10. Internal Audit → periodic review
+1. **User (Custodian)** → raises DRF in Teams; uploads asset photos
+2. **User Department Head** → endorses in Teams
+3. **FBP** → verifies FAR, NBV, encumbrances; approves in Teams
+4. **IT** (if applicable) → issues data sanitization certificate
+5. **Procurement** (if sale) → obtains quotations / runs tender
+6. **Disposal Committee** (if T3+) → reviews and recommends
+7. **BU GM** → final approval (T1/T2) or endorsement before escalation (T3+)
+8. **CFO / CEO / Board** → escalated approval per tier
+9. **Procurement / Custodian** → executes disposal, collects proceeds, obtains certificates, uploads post-removal photos
+10. **Fixed Asset Accountant** → posts entries, updates FAR, archives file
+11. **Internal Audit** → periodic review
