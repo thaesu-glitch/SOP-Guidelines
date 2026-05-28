@@ -71,22 +71,40 @@ Inventory items, consumables, and stock-in-trade are **excluded** from this poli
 | **CFO / Approving Authority** | Provides final approval based on the Authority Matrix. |
 | **External Auditor** | Reviews material disposals as part of statutory audit procedures. |
 
-## 6. Authority Matrix for Disposal Approval
+## 6. Approval Matrix
 
-Approval thresholds are based on the **Net Book Value (NBV)** of the asset, or **gross book value** where NBV is zero. Where multiple assets are disposed of in a single transaction, the **aggregate** value applies.
+### 6.1 Standard Approval Matrix (by Value)
 
-| NBV / Gross Value (whichever is higher) | Initiator | Endorser | Approver | Additional Requirement |
-| --- | --- | --- | --- | --- |
-| ≤ USD 1,000 | Custodian | Department Head | Finance Manager | — |
-| > USD 1,000 to ≤ USD 10,000 | Custodian | Department Head | Finance Director / Controller | — |
-| > USD 10,000 to ≤ USD 50,000 | Custodian | Department Head | CFO | Disposal Committee review |
-| > USD 50,000 to ≤ USD 250,000 | Custodian | CFO | CEO | Disposal Committee recommendation |
-| > USD 250,000 | Custodian | CEO | Board of Directors / Audit Committee | Independent valuation required |
+Approval thresholds are based on the **higher of Net Book Value (NBV) or estimated fair / market value** of the asset. Where multiple assets are disposed of in a single transaction, the **aggregate** value applies. Splitting a disposal to bring it under a lower threshold is **strictly prohibited**.
 
-**Additional approval is required for:**
-- **Sale to employees, directors, or related parties** — one level above the standard matrix and disclosure in related-party transaction register.
-- **Donations** — CFO (≤ USD 10,000) or CEO (> USD 10,000) approval required.
-- **Write-off due to loss or theft** — CFO approval, supporting police report (where applicable), and Internal Audit review.
+| Tier | NBV / Fair Value (whichever is higher) | Initiator | Endorser | Recommender | Final Approver | Additional Requirement |
+| --- | --- | --- | --- | --- | --- | --- |
+| **T1** | ≤ USD 1,000 | Custodian | Department Head | Finance Manager | Finance Manager | One quotation (if sold) |
+| **T2** | > USD 1,000 to ≤ USD 10,000 | Custodian | Department Head | Finance Manager | Finance Director / Controller | Two quotations (if sold) |
+| **T3** | > USD 10,000 to ≤ USD 50,000 | Custodian | Department Head | Disposal Committee | CFO | Three quotations or tender; Committee minutes |
+| **T4** | > USD 50,000 to ≤ USD 250,000 | Custodian | CFO | Disposal Committee | CEO | Sealed tender / auction; independent valuation if specialized asset |
+| **T5** | > USD 250,000 | Custodian | CEO | Audit Committee | Board of Directors | Independent valuation **mandatory**; tender required |
+
+### 6.2 Special-Case Approvals (override the standard matrix)
+
+| Scenario | Required Approval | Additional Controls |
+| --- | --- | --- |
+| Sale to **employees, directors, related parties, or their family members** | One tier above standard matrix; minimum CFO | Conflict-of-interest declaration; independent valuation; disclosure in Related-Party Transactions register |
+| **Donation** to charitable organisations | CFO (≤ USD 10,000) / CEO (> USD 10,000) | Recipient must be registered charity; acknowledgement letter mandatory |
+| **Write-off due to loss, theft, or fraud** | CFO + Internal Audit review; CEO if > USD 25,000 | Police report (where applicable), insurance claim filed, root-cause investigation |
+| **Write-off due to obsolescence / impairment** | Per standard matrix based on NBV | Technical assessment by qualified personnel |
+| **Trade-in** against a new asset purchase | Per standard matrix; both purchase and disposal approvals must align | Independent benchmark of trade-in value |
+| **Asset under finance lease, pledged, or grant-funded** | Per matrix **plus** legal/lender/grantor consent | Written waiver from third party before approval |
+| **Cross-border / inter-company transfer** | CFO + Tax | Transfer pricing documentation; customs compliance |
+| **Emergency / safety-driven disposal** (e.g., hazardous condition) | Department Head may act with verbal CFO concurrence; written ratification within 48 hours | Post-event documentation, photographs, witness statements |
+
+### 6.3 Approval Routing Rules
+
+1. **Sequential routing** — endorsement, recommendation, and final approval must occur in the order listed; downstream approvers cannot sign before upstream signatures are obtained.
+2. **No self-approval** — no individual may approve a disposal in which they are the custodian, beneficiary, or have any financial interest.
+3. **Delegation** — approvers may delegate **only** in writing during planned absence, and only to a same-level or higher officer. Delegation does not transfer accountability.
+4. **Validity** — an approval lapses if disposal is not executed within **90 days**; re-approval is required thereafter.
+5. **Currency conversion** — for non-USD values, the threshold is converted at the **month-end rate** of the month preceding the request.
 
 ## 7. Methods of Disposal
 
@@ -101,55 +119,106 @@ The appropriate method shall be selected by considering value recovery, time, ri
 7. **Inter-company / Inter-department Transfer** — at NBV; treated as a transfer (not a disposal) for consolidated reporting but updates location and custodian in the FAR.
 8. **Write-Off** — for assets that are lost, stolen, destroyed, or rendered unusable, with no recovery possible.
 
-## 8. Disposal Procedure
+## 8. Disposal Process
+
+The end-to-end disposal process consists of **eight (8) sequential steps**. Each step has a defined **owner**, **deliverable**, and **target turnaround time (TAT)**.
+
+| Step | Activity | Owner | Deliverable | Target TAT |
+| --- | --- | --- | --- | --- |
+| 1 | Identification & Request | Custodian | Completed DRF | 2 working days |
+| 2 | Endorsement | Department Head | Endorsed DRF | 2 working days |
+| 3 | Verification | Finance (FA Accountant) | FAR extract, NBV, encumbrance check | 3 working days |
+| 4 | Valuation / Quotation | Procurement | Quotations / tender / valuation report | 5–15 working days |
+| 5 | Approval | Per Approval Matrix | Approved DRF, Committee minutes | 5–10 working days |
+| 6 | Execution & Handover | Procurement / Custodian | Sale invoice, receipt of funds, certificates | 10 working days |
+| 7 | Recording | Finance | Journal voucher, updated FAR | 3 working days from execution |
+| 8 | Reconciliation & Reporting | Finance / Internal Audit | Monthly disposal report, reconciliation | Monthly |
 
 ### 8.1 Step 1 — Identification and Request
 
-1. The Custodian identifies an asset for disposal and completes the **Disposal Request Form (DRF)** including:
-   - Asset description, asset tag/serial number, FAR reference
-   - Location, current condition, original cost (if known)
-   - Reason for disposal
+1. The Custodian identifies assets requiring disposal through **routine use, annual physical verification, technical assessment, replacement programmes**, or **damage reports**.
+2. The Custodian completes the **Disposal Request Form (DRF)** capturing:
+   - Asset description, asset tag / serial number, FAR reference
+   - Location, custodian, current condition
+   - Original cost, acquisition date (if known)
+   - Detailed reason for disposal (with photographs for damaged / scrap items)
    - Proposed disposal method
-2. The Department Head endorses the DRF and submits it to Finance.
+   - Estimated proceeds (if any) and proposed buyer (if known)
+3. For IT assets, the request must flag whether the asset contains **company or personal data**.
 
-### 8.2 Step 2 — Verification
+### 8.2 Step 2 — Departmental Endorsement
 
-3. Finance verifies:
-   - The asset exists in the FAR.
-   - Current NBV, accumulated depreciation, and any impairment.
-   - That the asset is not subject to any encumbrance (e.g., pledged as security, under finance lease, government grant restriction).
-4. For IT / data-bearing assets, the **IT Department issues a Data Sanitization Certificate** prior to physical disposal.
+4. The Department Head reviews and confirms:
+   - The asset is genuinely surplus / unfit / uneconomic to repair.
+   - No alternative redeployment is feasible within the department.
+   - The proposed method is appropriate.
+5. The endorsed DRF is logged in the **Disposal Register** (sequentially numbered) and submitted to Finance.
 
-### 8.3 Step 3 — Valuation (where applicable)
+### 8.3 Step 3 — Finance Verification
 
-5. For sales, Procurement obtains:
-   - At least **one quotation** for disposals ≤ USD 10,000
-   - **Three quotations** for disposals > USD 10,000 to ≤ USD 50,000
-   - **Tender / auction or independent valuation** for disposals > USD 50,000
+6. The Fixed Asset Accountant verifies:
+   - Asset existence in the FAR and physical existence (sighting required for high-value items).
+   - Current NBV, accumulated depreciation, and any impairment booked.
+   - **Encumbrance check** — pledged as security, subject to finance lease, government grant condition, customs bond, warranty obligation.
+   - **Insurance check** — confirm asset is removed from insurance schedule post-disposal.
+   - **Tax check** — VAT/GST treatment, capital allowance clawback (if any).
+7. If the asset is data-bearing, Finance routes the DRF to **IT for data sanitization**:
+   - Wiping per NIST 800-88 / equivalent standard, or physical destruction (shredding, degaussing).
+   - IT issues a **Data Sanitization / Destruction Certificate** referencing asset serial numbers.
 
-### 8.4 Step 4 — Approval
+### 8.4 Step 4 — Valuation and Market-Testing
 
-6. The DRF is routed for approval per the Authority Matrix (Section 6).
-7. For Disposal Committee reviews, minutes of the meeting and recommendation must be attached.
+8. Procurement determines fair value through:
+   - **One written quotation** for Tier 1 (≤ USD 1,000)
+   - **Two written quotations** for Tier 2 (> USD 1,000 to ≤ USD 10,000)
+   - **Three written quotations or sealed tender** for Tier 3 (> USD 10,000 to ≤ USD 50,000)
+   - **Sealed tender, public auction, or independent valuation** for Tier 4 (> USD 50,000 to ≤ USD 250,000)
+   - **Independent professional valuation + sealed tender** mandatory for Tier 5 (> USD 250,000)
+9. All quotations / bids must be:
+   - In writing, dated, and on the bidder's letterhead.
+   - Opened in the presence of at least two officers (Procurement + Finance / Internal Audit).
+   - Documented in a **Bid Evaluation Sheet** with selection rationale.
+10. The **highest qualified bid** must be accepted; rejection of the highest bid requires written justification approved one tier above the standard approver.
 
-### 8.5 Step 5 — Execution
+### 8.5 Step 5 — Approval
 
-8. Upon approval:
-   - For sales: Procurement issues invoice, buyer remits payment to the Company's bank account **before** asset release.
-   - For scrapping: a licensed disposal vendor is engaged; a **Certificate of Destruction / Recycling** is obtained.
-   - For donations: a written acknowledgement is obtained from the recipient.
-   - For write-offs: supporting documentation (police report, insurance claim, technical assessment) is attached.
-9. Asset tag is removed; physical removal is witnessed by at least one independent party (Finance or Internal Audit representative for disposals > USD 10,000).
+11. The complete disposal package (DRF, endorsements, FAR extract, sanitization certificate, valuation / quotations, bid evaluation) is routed sequentially per the **Approval Matrix (Section 6)**.
+12. Disposal Committee meetings (where required) must produce **minutes** identifying attendees, declarations of interest, options considered, and recommendation.
+13. The Board / Audit Committee approval (Tier 5) requires a **board paper** including financial impact, gain/loss, fair-value evidence, and counterparty due diligence.
 
-### 8.6 Step 6 — Recording
+### 8.6 Step 6 — Execution and Handover
 
-10. Finance posts the disposal accounting entry (see Section 9).
-11. Finance updates the FAR — status changed to "Disposed", disposal date, method, proceeds, and gain/loss recorded.
-12. The complete disposal file is archived (see Section 11).
+14. **For sales:**
+    - Procurement issues a sale invoice (with applicable VAT / GST).
+    - Buyer remits payment to the **Company's official bank account** — payment must clear **before** physical release of the asset.
+    - A **Gate Pass / Asset Release Note** is issued, signed by Security, Custodian, and Finance.
+    - Buyer signs an **Acknowledgement of Receipt** confirming asset condition.
+15. **For scrap / recycling:**
+    - A licensed e-waste / scrap vendor is engaged; weighbridge ticket and vendor receipt obtained.
+    - **Certificate of Destruction / Recycling** is collected and attached.
+16. **For donations:**
+    - Recipient charity provides registration documents and a **written acknowledgement** on its letterhead.
+17. **For write-offs:**
+    - Police report (theft / loss), insurance correspondence, technical assessment, and witnessed destruction record are attached.
+18. **Physical removal** of all assets with NBV / fair value > USD 10,000 must be **witnessed by Finance or Internal Audit**, with photographs taken.
+19. Asset tags, decals, and identifying marks (logos, registration numbers, vehicle plates) must be removed before release.
 
-### 8.7 Step 7 — Reconciliation
+### 8.7 Step 7 — Recording and Derecognition
 
-13. The Fixed Asset Accountant reconciles the FAR to the GL at month-end and confirms all approved disposals have been processed.
+20. Within **three (3) working days** of execution, Finance posts the disposal entry:
+    - Charges depreciation up to the date of disposal.
+    - Records proceeds, derecognises cost and accumulated depreciation, books gain/loss (see Section 9).
+    - Transfers any related revaluation surplus from reserves to retained earnings.
+    - Updates VAT / GST output records.
+21. The Fixed Asset Accountant updates the FAR — status changed to **"Disposed"**, including disposal date, method, proceeds, gain/loss, buyer reference, and approval reference.
+22. The complete disposal file is archived per Section 11.
+
+### 8.8 Step 8 — Reconciliation, Reporting, and Post-Disposal Review
+
+23. At month-end, Finance reconciles the FAR to the GL and confirms all approved disposals have been processed and no unapproved entries exist.
+24. A **monthly Disposal Schedule** is prepared and reviewed by the CFO.
+25. Internal Audit performs **sample testing** of disposals on a quarterly basis.
+26. A **post-disposal review** is conducted on Tier 4/5 transactions within 60 days, comparing actual proceeds against estimates and identifying lessons learned.
 
 ## 9. Accounting Treatment
 
@@ -175,18 +244,80 @@ Dr  Loss on Disposal of Fixed Assets  (if proceeds < NBV)
 - **VAT / GST / Sales Tax** — applicable indirect taxes must be computed on the sale proceeds and remitted to the tax authority.
 - **Government grants** — disposal of an asset funded by a government grant may trigger refund obligations; Finance must check grant terms before disposal.
 
-## 10. Internal Controls and Segregation of Duties
+## 10. Internal Controls and Control Measures
 
-The following controls are mandatory:
+The following control framework is **mandatory** and shall not be circumvented under any circumstances.
 
-1. **Segregation of Duties** — the person initiating the disposal cannot also approve or record it.
-2. **Independent witness** for physical removal of assets with NBV or gross value > USD 10,000.
-3. **Sequential numbering** of all DRFs, with a register maintained by Finance.
-4. **No cash sales** — all proceeds must flow through the Company's bank account.
-5. **Conflict of interest declaration** — any employee or director with a personal interest in the buyer must declare it and recuse themselves from the approval chain.
-6. **Quarterly review** of all disposals by the Finance Manager, with sample testing.
-7. **Annual physical verification** of fixed assets to identify any unauthorized disposals.
-8. **System access controls** — only authorized Finance personnel may post disposal entries in the ERP / accounting system.
+### 10.1 Preventive Controls (designed to stop errors / irregularities)
+
+| # | Control | Description |
+| --- | --- | --- |
+| P1 | **Segregation of Duties (SoD)** | No single individual may perform more than one of: (a) request, (b) approve, (c) execute the disposal, (d) record in the books, (e) reconcile. The matrix below applies. |
+| P2 | **Authority Matrix enforcement** | Approvals follow Section 6; system / ERP workflow blocks disposal posting without all required approvals on file. |
+| P3 | **No self-dealing** | Approvers, custodians, and Finance / Procurement personnel involved in a disposal must declare any personal interest and recuse themselves. |
+| P4 | **No cash transactions** | All proceeds must be received via bank transfer, cheque, or other traceable means into the Company's official account. **Cash receipts are strictly prohibited.** |
+| P5 | **Pre-numbered DRFs and Disposal Register** | Sequentially numbered, controlled, and maintained by Finance; gaps investigated monthly. |
+| P6 | **Payment-before-release** | For sales, asset is released only after funds are cleared in the Company's bank account. |
+| P7 | **Splitting prohibition** | Splitting a disposal into smaller transactions to fall under a lower approval threshold is a disciplinary offence. |
+| P8 | **Tender / quotation integrity** | Sealed bids opened jointly by Procurement + Finance / Internal Audit; bid registers signed by both. |
+| P9 | **Vendor / buyer due diligence** | Buyers and scrap vendors must be screened (sanctions list, licensing, beneficial ownership) for transactions > USD 10,000. |
+| P10 | **System access controls** | Only the Fixed Asset Accountant and Finance Manager have rights to post disposal entries and amend the FAR. Privileged access is logged and reviewed monthly. |
+| P11 | **Data-bearing asset controls** | Mandatory data sanitization certificate before release; physical destruction logged with serial numbers; chain-of-custody maintained. |
+| P12 | **Encumbrance check** | Finance verifies the asset is free of liens, leases, grant restrictions, and warranty obligations before any approval is sought. |
+
+### 10.2 Detective Controls (designed to identify errors / irregularities after the fact)
+
+| # | Control | Description | Frequency |
+| --- | --- | --- | --- |
+| D1 | **FAR to GL reconciliation** | Reconcile FAR balances and disposals to the General Ledger; investigate variances. | Monthly |
+| D2 | **Annual physical verification** | 100% count for high-value assets; risk-based sample for the rest; identify missing / disposed-but-not-recorded items. | Annually |
+| D3 | **Disposal Schedule review by CFO** | Review of all disposals: proceeds vs. NBV, gain/loss trends, frequency by department. | Monthly |
+| D4 | **Internal Audit sample testing** | Independent review of approval, valuation, proceeds, and recording for a sample of disposals. | Quarterly |
+| D5 | **Exception reporting** | System reports of: disposals without DRF, manual FAR adjustments, post-period entries, related-party disposals, disposals at < 80% of latest valuation. | Monthly |
+| D6 | **Trend analytics** | Year-on-year analysis of disposal volume and loss-on-disposal by category to detect anomalies. | Annually |
+| D7 | **Whistle-blower channel** | Confidential channel for reporting suspected unauthorized disposals or fraud. | Continuous |
+| D8 | **External audit review** | Statutory auditors review material disposals annually. | Annually |
+
+### 10.3 Corrective Controls
+
+| # | Control | Description |
+| --- | --- | --- |
+| C1 | **Variance investigation** | Reconciliation differences, unrecorded disposals, or unsupported entries are investigated and resolved within 30 days. |
+| C2 | **Recovery of unauthorized disposal** | Where an asset has been disposed of without proper approval, recovery action (including civil/criminal proceedings) is pursued. |
+| C3 | **Disciplinary action** | Breaches result in disciplinary action per the Company's HR policy; severe cases referred for prosecution. |
+| C4 | **Policy refresh** | Lessons learned from incidents and audit findings are incorporated into the next policy review. |
+
+### 10.4 Segregation of Duties Matrix
+
+| Activity | Custodian | Dept. Head | Finance (FA Accountant) | Finance Manager | Procurement | IT | CFO | Internal Audit |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Initiate DRF | R | A | — | — | — | — | — | — |
+| Endorse request | — | R | — | — | — | — | — | — |
+| FAR verification | — | — | R | A | — | — | — | — |
+| Data sanitization | — | — | — | — | — | R | — | — |
+| Obtain quotations / tender | — | — | — | — | R | — | A | — |
+| Approve disposal | — | — | — | A/R* | — | — | A/R* | — |
+| Receive proceeds (Treasury) | — | — | — | R | — | — | A | — |
+| Post journal entry | — | — | R | A | — | — | — | — |
+| Update FAR | — | — | R | A | — | — | — | — |
+| Reconcile FAR to GL | — | — | R | A | — | — | A | — |
+| Witness physical removal | — | — | R | — | — | — | — | R |
+| Independent review / audit | — | — | — | — | — | — | — | R |
+
+*R = Responsible, A = Accountable. The approver depends on the tier per Section 6.*
+
+### 10.5 Key Risk Indicators (KRIs)
+
+Finance shall monitor the following KRIs and report exceptions to the CFO and Audit Committee:
+
+1. Number / value of disposals processed without all required approvals.
+2. Disposals at sale price < 80% of latest book/fair value.
+3. Disposals to employees / related parties as % of total disposals.
+4. Aging of approved but unexecuted DRFs (> 90 days).
+5. Number of physical verification exceptions (assets not found vs. not recorded as disposed).
+6. Reconciliation differences between FAR and GL outstanding > 30 days.
+7. Disposal losses as % of cost — trend by department.
+8. Frequency of write-offs due to loss / theft — by location.
 
 ## 11. Documentation and Record Retention
 
