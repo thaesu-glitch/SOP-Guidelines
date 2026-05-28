@@ -9,9 +9,13 @@ operational tooling.
   - `SOP_BOQ_Budget_Review.md`
   - `SOP_Vendor_Quotation_Comparison.md`
   - `SOP_Approved_Vendor_Management.md`
-- [`web-app/`](./web-app) — operational tool implementing the SOPs:
-  BOQ budget review, vendor quotation comparison, and an approved-vendor
-  dashboard across projects.
+  - `POWER_APP_Build_Guide.md` — step-by-step guide to build the same
+    tooling as a Dataverse + Model-driven Power App
+  - `PowerApp_Import_Templates/` — CSVs ready to bulk-import into the
+    Dataverse tables described in the build guide
+- [`web-app/`](./web-app) — Node.js + React reference implementation of
+  the same SOPs (BOQ review, quotation comparison, approved-vendor
+  dashboard). Treat as the working spec for the Power App version.
 
 ## Quick start (web app)
 
