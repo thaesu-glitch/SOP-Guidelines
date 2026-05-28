@@ -1,0 +1,216 @@
+{
+  "publisherPrefix": "as",
+  "languageCode": 1033,
+  "choiceValueStart": 100000000,
+
+  "choices": [
+    {
+      "name": "as_projectstatus",
+      "displayName": "Project status",
+      "options": [
+        { "label": "Planning",     "value": 100000000 },
+        { "label": "In progress",  "value": 100000001 },
+        { "label": "On hold",      "value": 100000002 },
+        { "label": "Completed",    "value": 100000003 }
+      ]
+    },
+    {
+      "name": "as_vendorstatus",
+      "displayName": "Vendor status",
+      "options": [
+        { "label": "Pending",      "value": 100000000 },
+        { "label": "Approved",     "value": 100000001 },
+        { "label": "Blacklisted",  "value": 100000002 }
+      ]
+    },
+    {
+      "name": "as_boqstatus",
+      "displayName": "BOQ status",
+      "options": [
+        { "label": "Pending",       "value": 100000000 },
+        { "label": "Under review",  "value": 100000001 },
+        { "label": "Awarded",       "value": 100000002 },
+        { "label": "Cancelled",     "value": 100000003 }
+      ]
+    },
+    {
+      "name": "as_quotestatus",
+      "displayName": "Quotation status",
+      "options": [
+        { "label": "Received",   "value": 100000000 },
+        { "label": "Evaluated",  "value": 100000001 },
+        { "label": "Selected",   "value": 100000002 },
+        { "label": "Rejected",   "value": 100000003 }
+      ]
+    },
+    {
+      "name": "as_availability",
+      "displayName": "Availability",
+      "options": [
+        { "label": "Included",      "value": 100000000 },
+        { "label": "Not included",  "value": 100000001 },
+        { "label": "Optional",      "value": 100000002 }
+      ]
+    },
+    {
+      "name": "as_materiallabour",
+      "displayName": "Material / Labour",
+      "options": [
+        { "label": "Material",            "value": 100000000 },
+        { "label": "Labour",              "value": 100000001 },
+        { "label": "Material + Labour",   "value": 100000002 }
+      ]
+    },
+    {
+      "name": "as_currency",
+      "displayName": "Currency",
+      "options": [
+        { "label": "MMK", "value": 100000000 },
+        { "label": "USD", "value": 100000001 },
+        { "label": "EUR", "value": 100000002 },
+        { "label": "THB", "value": 100000003 },
+        { "label": "SGD", "value": 100000004 }
+      ]
+    }
+  ],
+
+  "tables": [
+    {
+      "name": "as_project",
+      "displayName": "Project",
+      "displayPlural": "Projects",
+      "primaryName": { "schema": "as_name", "display": "Project name", "maxLength": 200 },
+      "columns": [
+        { "name": "as_code",       "display": "Project code", "type": "String",   "maxLength": 20,  "required": "ApplicationRequired" },
+        { "name": "as_client",     "display": "Client",       "type": "String",   "maxLength": 100 },
+        { "name": "as_location",   "display": "Location",     "type": "String",   "maxLength": 100 },
+        { "name": "as_startdate",  "display": "Start date",   "type": "DateOnly" },
+        { "name": "as_enddate",    "display": "End date",     "type": "DateOnly" },
+        { "name": "as_status",     "display": "Status",       "type": "Picklist", "optionSet": "as_projectstatus", "defaultValue": 100000000, "required": "ApplicationRequired" },
+        { "name": "as_budgettotal","display": "Approved budget","type":"Money" },
+        { "name": "as_currency",   "display": "Currency",     "type": "Picklist", "optionSet": "as_currency", "defaultValue": 100000000 },
+        { "name": "as_notes",      "display": "Notes",        "type": "Memo",     "maxLength": 2000 }
+      ]
+    },
+
+    {
+      "name": "as_vendor",
+      "displayName": "Vendor",
+      "displayPlural": "Vendors",
+      "primaryName": { "schema": "as_name", "display": "Vendor name", "maxLength": 200 },
+      "columns": [
+        { "name": "as_vendorcode",    "display": "Vendor code",     "type": "String", "maxLength": 20, "required": "ApplicationRequired" },
+        { "name": "as_category",      "display": "Category",        "type": "String", "maxLength": 60 },
+        { "name": "as_contactperson", "display": "Contact person",  "type": "String", "maxLength": 100 },
+        { "name": "as_email",         "display": "Email",           "type": "String", "maxLength": 100, "format": "Email" },
+        { "name": "as_phone",         "display": "Phone",           "type": "String", "maxLength": 30,  "format": "Phone" },
+        { "name": "as_address",       "display": "Address",         "type": "Memo",   "maxLength": 500 },
+        { "name": "as_registrationno","display": "Registration no.","type": "String", "maxLength": 50 },
+        { "name": "as_taxid",         "display": "Tax ID",          "type": "String", "maxLength": 50 },
+        { "name": "as_status",        "display": "Status",          "type": "Picklist", "optionSet": "as_vendorstatus", "defaultValue": 100000000, "required": "ApplicationRequired" },
+        { "name": "as_approveddate",  "display": "Approved date",   "type": "DateOnly" },
+        { "name": "as_approvedbytext","display": "Approved by",     "type": "String", "maxLength": 100 },
+        { "name": "as_notes",         "display": "Notes",           "type": "Memo",   "maxLength": 2000 }
+      ]
+    },
+
+    {
+      "name": "as_boqitem",
+      "displayName": "BOQ item",
+      "displayPlural": "BOQ items",
+      "primaryName": { "schema": "as_itemcode", "display": "Item code", "maxLength": 50 },
+      "columns": [
+        { "name": "as_tendercode", "display": "Tender code", "type": "String", "maxLength": 30 },
+        { "name": "as_lv1code",    "display": "Lv1 code",    "type": "String", "maxLength": 10 },
+        { "name": "as_lv1name",    "display": "Lv1 name",    "type": "String", "maxLength": 80 },
+        { "name": "as_lv2code",    "display": "Lv2 code",    "type": "String", "maxLength": 10 },
+        { "name": "as_lv2name",    "display": "Lv2 name",    "type": "String", "maxLength": 80 },
+        { "name": "as_lv3code",    "display": "Lv3 code",    "type": "String", "maxLength": 10 },
+        { "name": "as_lv3name",    "display": "Lv3 name",    "type": "String", "maxLength": 80 },
+        { "name": "as_lv4code",    "display": "Lv4 code",    "type": "String", "maxLength": 10 },
+        { "name": "as_lv4name",    "display": "Lv4 name",    "type": "String", "maxLength": 80 },
+        { "name": "as_lv5code",    "display": "Lv5 code",    "type": "String", "maxLength": 10 },
+        { "name": "as_lv5name",    "display": "Lv5 name",    "type": "String", "maxLength": 80 },
+        { "name": "as_description","display": "Description", "type": "Memo",   "maxLength": 1000, "required": "ApplicationRequired" },
+        { "name": "as_room",       "display": "Room",        "type": "String", "maxLength": 100 },
+        { "name": "as_floor",      "display": "Floor",       "type": "String", "maxLength": 30 },
+        { "name": "as_width",      "display": "Width / Ø",   "type": "Decimal","precision": 3, "minValue": 0, "maxValue": 100000 },
+        { "name": "as_depth",      "display": "Depth / Length","type":"Decimal","precision": 3, "minValue": 0, "maxValue": 100000 },
+        { "name": "as_height",     "display": "Height",      "type": "Decimal","precision": 3, "minValue": 0, "maxValue": 100000 },
+        { "name": "as_thickness",  "display": "Thickness",   "type": "Decimal","precision": 3, "minValue": 0, "maxValue": 100000 },
+        { "name": "as_color",      "display": "Color",       "type": "String", "maxLength": 60 },
+        { "name": "as_colorcode",  "display": "Color code",  "type": "String", "maxLength": 30 },
+        { "name": "as_material",   "display": "Material",    "type": "String", "maxLength": 100 },
+        { "name": "as_materialcode","display":"Material code","type": "String", "maxLength": 30 },
+        { "name": "as_unit",       "display": "Unit",        "type": "String", "maxLength": 20 },
+        { "name": "as_availability","display": "Availability","type": "Picklist", "optionSet": "as_availability", "defaultValue": 100000000 },
+        { "name": "as_materiallabour","display":"Material/Labour","type":"Picklist","optionSet":"as_materiallabour","defaultValue":100000002 },
+        { "name": "as_quantity",   "display": "Quantity",    "type": "Decimal","precision": 4, "minValue": 0, "maxValue": 100000000 },
+        { "name": "as_historicalprice","display":"Historical price","type":"Money" },
+        { "name": "as_historicalfxrate","display":"Historical FX rate","type":"Decimal","precision":4,"minValue":0,"maxValue":1000000 },
+        { "name": "as_adjustment", "display": "Adjustment",  "type": "Money" },
+        { "name": "as_budgetedunitrate","display":"Budgeted unit rate","type":"Money" },
+        { "name": "as_awardedunitrate","display":"Awarded unit rate","type":"Money" },
+        { "name": "as_status",     "display": "Status",      "type": "Picklist", "optionSet":"as_boqstatus","defaultValue":100000000,"required":"ApplicationRequired" },
+        { "name": "as_remarks",    "display": "Remarks",     "type": "Memo",   "maxLength": 2000 }
+      ]
+    },
+
+    {
+      "name": "as_quotation",
+      "displayName": "Quotation",
+      "displayPlural": "Quotations",
+      "primaryName": { "schema": "as_quoteref", "display": "Quote reference", "maxLength": 50, "autoNumberFormat": "Q-{SEQNUM:00000}" },
+      "columns": [
+        { "name": "as_primaryunitprice", "display": "Primary unit price",   "type": "Money" },
+        { "name": "as_primaryquantity",  "display": "Primary quantity",     "type": "Decimal", "precision": 4, "minValue": 0, "maxValue": 100000000 },
+        { "name": "as_additionalunitprice","display":"Additional unit price","type":"Money" },
+        { "name": "as_additionalquantity","display":"Additional quantity",   "type":"Decimal","precision":4,"minValue":0,"maxValue":100000000 },
+        { "name": "as_materialprice",    "display": "Material price",       "type": "Money" },
+        { "name": "as_labourcost",       "display": "Labour cost",          "type": "Money" },
+        { "name": "as_quotedunitrate",   "display": "Quoted unit rate",     "type": "Money" },
+        { "name": "as_quotedtotal",      "display": "Quoted total",         "type": "Money" },
+        { "name": "as_ovroom",           "display": "Override: Room",       "type": "String", "maxLength": 100 },
+        { "name": "as_ovfloor",          "display": "Override: Floor",      "type": "String", "maxLength": 30 },
+        { "name": "as_ovwidth",          "display": "Override: Width",      "type": "Decimal","precision":3,"minValue":0,"maxValue":100000 },
+        { "name": "as_ovdepth",          "display": "Override: Depth",      "type": "Decimal","precision":3,"minValue":0,"maxValue":100000 },
+        { "name": "as_ovheight",         "display": "Override: Height",     "type": "Decimal","precision":3,"minValue":0,"maxValue":100000 },
+        { "name": "as_ovthickness",      "display": "Override: Thickness",  "type": "Decimal","precision":3,"minValue":0,"maxValue":100000 },
+        { "name": "as_ovcolor",          "display": "Override: Color",      "type": "String", "maxLength": 60 },
+        { "name": "as_ovmaterial",       "display": "Override: Material",   "type": "String", "maxLength": 100 },
+        { "name": "as_vendornote",       "display": "Vendor's note",        "type": "Memo",   "maxLength": 2000 },
+        { "name": "as_quotedate",        "display": "Quote date",           "type": "DateOnly" },
+        { "name": "as_validitydate",     "display": "Validity date",        "type": "DateOnly" },
+        { "name": "as_paymentterms",     "display": "Payment terms",        "type": "String", "maxLength": 200 },
+        { "name": "as_deliveryleadtime", "display": "Delivery lead time",   "type": "String", "maxLength": 100 },
+        { "name": "as_status",           "display": "Status",               "type": "Picklist", "optionSet":"as_quotestatus","defaultValue":100000000,"required":"ApplicationRequired" },
+        { "name": "as_vsbudget",         "display": "vs Budget",            "type": "Money" },
+        { "name": "as_remarks",          "display": "Remarks",              "type": "Memo",   "maxLength": 1000 }
+      ]
+    },
+
+    {
+      "name": "as_projectvendor",
+      "displayName": "Project Vendor",
+      "displayPlural": "Project Vendors",
+      "primaryName": { "schema": "as_awardref", "display": "Award reference", "maxLength": 50, "autoNumberFormat": "AWD-{SEQNUM:00000}" },
+      "columns": [
+        { "name": "as_category",       "display": "Category",         "type": "String", "maxLength": 60 },
+        { "name": "as_contractvalue",  "display": "Contract value",   "type": "Money" },
+        { "name": "as_awardeddate",    "display": "Awarded date",     "type": "DateOnly" },
+        { "name": "as_awardedbytext",  "display": "Awarded by",       "type": "String", "maxLength": 100 },
+        { "name": "as_remarks",        "display": "Remarks",          "type": "Memo",   "maxLength": 1000 }
+      ]
+    }
+  ],
+
+  "relationships": [
+    { "schema": "as_project_boqitem",       "parent": "as_project", "child": "as_boqitem",       "lookupSchema": "as_project",       "lookupDisplay": "Project",        "cascadeDelete": "Cascade" },
+    { "schema": "as_project_quotation",     "parent": "as_project", "child": "as_quotation",     "lookupSchema": "as_project",       "lookupDisplay": "Project",        "cascadeDelete": "Cascade" },
+    { "schema": "as_project_projectvendor", "parent": "as_project", "child": "as_projectvendor", "lookupSchema": "as_project",       "lookupDisplay": "Project",        "cascadeDelete": "Cascade" },
+    { "schema": "as_vendor_quotation",      "parent": "as_vendor",  "child": "as_quotation",     "lookupSchema": "as_vendor",        "lookupDisplay": "Vendor",         "cascadeDelete": "Restrict" },
+    { "schema": "as_vendor_projectvendor",  "parent": "as_vendor",  "child": "as_projectvendor", "lookupSchema": "as_vendor",        "lookupDisplay": "Vendor",         "cascadeDelete": "Restrict" },
+    { "schema": "as_boqitem_quotation",     "parent": "as_boqitem", "child": "as_quotation",     "lookupSchema": "as_boqitem",       "lookupDisplay": "BOQ item",       "cascadeDelete": "Cascade" },
+    { "schema": "as_awardedvendor_boqitem", "parent": "as_vendor",  "child": "as_boqitem",       "lookupSchema": "as_awardedvendor", "lookupDisplay": "Awarded vendor", "cascadeDelete": "RemoveLink" }
+  ]
+}
