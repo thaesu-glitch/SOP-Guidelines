@@ -4,7 +4,7 @@ import { api, fmt } from '../api';
 import { Modal, StatusBadge } from '../components/Layout.jsx';
 
 const empty = { code: '', name: '', client: '', location: '', start_date: '', end_date: '',
-  status: 'planning', budget_total: 0, currency: 'USD', notes: '' };
+  status: 'planning', budget_total: 0, currency: 'MMK', notes: '' };
 
 export default function Projects() {
   const [items, setItems] = useState([]);

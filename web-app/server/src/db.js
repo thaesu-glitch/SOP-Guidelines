@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS projects (
   end_date TEXT,
   status TEXT NOT NULL DEFAULT 'planning',
   budget_total REAL NOT NULL DEFAULT 0,
-  currency TEXT NOT NULL DEFAULT 'USD',
+  currency TEXT NOT NULL DEFAULT 'MMK',
   notes TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
@@ -48,18 +48,42 @@ CREATE TABLE IF NOT EXISTS vendors (
 CREATE TABLE IF NOT EXISTS boq_items (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   project_id INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
-  section TEXT,
-  item_code TEXT,
+
+  -- Identification
+  item_code TEXT,                       -- Combined code (e.g. 1010101-000)
+  tender_code TEXT,
+  lv1_code TEXT, lv1_name TEXT,         -- e.g. 1 | CAPEX|Construction
+  lv2_code TEXT, lv2_name TEXT,         -- e.g. 01 | Preconstruction
+  lv3_code TEXT, lv3_name TEXT,         -- e.g. 01 | Service fee
+  lv4_code TEXT, lv4_name TEXT,         -- e.g. 01 | Management
+  lv5_code TEXT, lv5_name TEXT,
+
+  -- Location & specification
+  room TEXT, floor TEXT,
+  width REAL, depth REAL, height REAL, thickness REAL,
+  other_type TEXT, other_value TEXT,
+  color TEXT, color_code TEXT,
+  material TEXT, material_code TEXT,
   description TEXT NOT NULL,
+
+  -- BOQ calculation
   unit TEXT,
+  availability TEXT,                    -- Included / Not included
+  material_labour TEXT,                 -- M / L / M+L
   quantity REAL NOT NULL DEFAULT 0,
+  historical_price REAL,
+  historical_fx_rate REAL,
+  adjustment REAL NOT NULL DEFAULT 0,
   budgeted_unit_rate REAL NOT NULL DEFAULT 0,
   budgeted_total REAL NOT NULL DEFAULT 0,
+
+  -- Award outcome
   awarded_unit_rate REAL,
   awarded_total REAL,
   awarded_vendor_id INTEGER REFERENCES vendors(id) ON DELETE SET NULL,
   status TEXT NOT NULL DEFAULT 'pending',
   remarks TEXT,
+
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_boq_project ON boq_items(project_id);
@@ -69,8 +93,24 @@ CREATE TABLE IF NOT EXISTS quotations (
   project_id INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
   boq_item_id INTEGER NOT NULL REFERENCES boq_items(id) ON DELETE CASCADE,
   vendor_id INTEGER NOT NULL REFERENCES vendors(id) ON DELETE CASCADE,
-  quoted_unit_rate REAL NOT NULL DEFAULT 0,
-  quoted_total REAL NOT NULL DEFAULT 0,
+
+  -- Pricing
+  primary_unit_price REAL NOT NULL DEFAULT 0,
+  primary_quantity REAL NOT NULL DEFAULT 0,
+  additional_unit_price REAL NOT NULL DEFAULT 0,
+  additional_quantity REAL NOT NULL DEFAULT 0,
+  material_price REAL NOT NULL DEFAULT 0,
+  labor_cost REAL NOT NULL DEFAULT 0,
+  quoted_unit_rate REAL NOT NULL DEFAULT 0,    -- total unit price (mat + lab)
+  quoted_total REAL NOT NULL DEFAULT 0,        -- total amount
+
+  -- Per-vendor spec overrides
+  ov_room TEXT, ov_floor TEXT,
+  ov_width REAL, ov_depth REAL, ov_height REAL, ov_thickness REAL,
+  ov_color TEXT, ov_material TEXT,
+  vendor_note TEXT,
+
+  -- Logistics
   quote_date TEXT,
   validity_date TEXT,
   payment_terms TEXT,

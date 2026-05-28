@@ -21,6 +21,22 @@ r.get('/:id', (req, res) => {
   res.json(row);
 });
 
+r.get('/:id/rollup', (req, res) => {
+  const rows = db.prepare(`
+    SELECT
+      COALESCE(lv2_name,'(Unclassified)') AS lv2,
+      COALESCE(lv3_name,'(All)') AS lv3,
+      COUNT(*) AS items,
+      COALESCE(SUM(budgeted_total),0) AS budgeted,
+      COALESCE(SUM(awarded_total),0) AS awarded,
+      SUM(CASE WHEN status='awarded' THEN 1 ELSE 0 END) AS awarded_count
+    FROM boq_items WHERE project_id=?
+    GROUP BY lv2, lv3
+    ORDER BY lv2, lv3
+  `).all(req.params.id);
+  res.json(rows);
+});
+
 r.post('/', (req, res) => {
   const { code, name, client, location, start_date, end_date, status, budget_total, currency, notes } = req.body;
   if (!code || !name) return res.status(400).json({ error: 'code and name are required' });
