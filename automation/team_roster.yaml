@@ -1,0 +1,17 @@
+# Roster of direct reports who receive the daily Claude AI reminder.
+# Edit this list directly -- no code changes needed to add/remove people.
+# Set active: false to pause reminders for someone without deleting their entry.
+
+sender:
+  # Mailbox the reminder is sent FROM. Must be a mailbox the Azure AD app
+  # is authorized to send as (see automation/README.md).
+  email: "your-team-lead-mailbox@asia-strategic.com"
+
+team:
+  - name: "Example Team Member"
+    email: "example.member@asia-strategic.com"
+    active: false   # flip to true once real team members are added below
+
+  # - name: "Jane Doe"
+  #   email: "jane.doe@asia-strategic.com"
+  #   active: true

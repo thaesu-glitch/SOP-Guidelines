@@ -1,0 +1,27 @@
+name: Daily Claude AI Reminder
+
+on:
+  schedule:
+    # 09:00 Bangkok time (UTC+7) on weekdays = 02:00 UTC Mon-Fri
+    - cron: "0 2 * * 1-5"
+  workflow_dispatch: {}
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r automation/requirements.txt
+
+      - name: Send reminder emails
+        env:
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        run: python automation/send_daily_reminder.py
