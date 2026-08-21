@@ -11,6 +11,7 @@
 | `Collection-Tracker-Template.xlsx` | The Excel tracker. Contains the `CollectionsTable` table the flow appends rows to. |
 | `Collections-Chat-to-Excel-Flow.zip` | Importable Power Automate package — builds the whole flow in one step (§4). |
 | `flow-definition.json` | The same flow logic in readable form, for review or manual rebuild. |
+| `BUILD-BY-HAND.md` | Copy/paste sheet for building the flow manually (§5), generated from `flow-definition.json` so the two cannot drift. Use this if the import fails. |
 
 ---
 
@@ -88,7 +89,22 @@ These are pre-filled in `Collections-Chat-to-Excel-Flow.zip` and `flow-definitio
 7. **Save**, then **turn the flow on**.
 8. Run the tests in §6 before telling the team to use it.
 
-> If the import is rejected, don't fight it — go to build path B. Package import formats change between Power Automate releases, and this package was assembled by hand rather than exported from a live tenant, so the wrapper may not match your tenant's current importer. The flow logic in §5 is the same either way and is the part that was actually verified.
+> **Import has failed once in this tenant.** On 2026-08-21 the first attempt returned:
+>
+> ```
+> MissingPackageManifest — The package manifest file 'manifest.json'
+> under 'Microsoft.Flow' folder missing.
+> ```
+>
+> The package now carries a manifest at both plausible locations
+> (`Microsoft.Flow/manifest.json` and `Microsoft.Flow/flows/<id>/manifest.json`),
+> which may or may not satisfy the importer — the exact legacy layout isn't
+> documented and can't be tested from outside the tenant.
+>
+> **Try the import at most twice, then stop and use build path B.** Path B is
+> deterministic and takes about 15 minutes with `BUILD-BY-HAND.md` open beside
+> the designer. Chasing the package format is not a good use of anyone's time,
+> and the flow logic is identical either way.
 
 ---
 
