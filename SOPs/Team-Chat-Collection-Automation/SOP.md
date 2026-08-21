@@ -69,7 +69,18 @@ These are pre-filled in `Collections-Chat-to-Excel-Flow.zip` and `flow-definitio
 
 ---
 
-## 4. Build path A — import the package (recommended)
+## 4. Build path A — import the package (does NOT work in this tenant)
+
+> **Superseded. Do not spend time here.** Two import attempts on 2026-08-21 both
+> failed with the identical `MissingPackageManifest` error, the second one after
+> adding manifests at both plausible locations in the package. Legacy package
+> import appears to be non-viable in this tenant — Microsoft has been retiring
+> it, and an unchanged error across a structural fix is consistent with that.
+>
+> **Use `BUILD-BY-HAND.md` instead.** The steps below are kept only as a record
+> of what was tried, in case a future tenant update makes import work again.
+
+### (superseded) Original import steps
 
 1. Go to **make.powerautomate.com** → sign in as the flow owner.
 2. Left nav → **My flows** → **Import** → **Import Package (Legacy)**.
@@ -108,7 +119,7 @@ These are pre-filled in `Collections-Chat-to-Excel-Flow.zip` and `flow-definitio
 
 ---
 
-## 5. Build path B — build it manually
+## 5. Build path B — build it manually (use this one)
 
 **+ Create → Automated cloud flow.** Search the trigger **"When a new chat message is added"** (Microsoft Teams). Set **Message type** to *Group chat* and pick the chat.
 

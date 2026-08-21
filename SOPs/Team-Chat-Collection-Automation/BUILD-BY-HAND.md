@@ -15,6 +15,14 @@ Values already known (no lookup needed):
 
 ---
 
+## Step 0 — Upload the tracker first
+
+The Excel step in Step 7 needs the file to already exist, so do this before opening Power Automate.
+
+1. Open `https://msholdings.sharepoint.com/sites/YangonAmericanProjects-Finance` → **Documents** → the **Finance** folder.
+2. Upload `Collection-Tracker-Template.xlsx`.
+3. Open it and **delete row 2** — the grey italic example row. It exists only to show the expected format, and if left in place it will look like a real collection.
+
 ## Step 1 — Trigger
 
 **+ Create → Automated cloud flow.** Trigger: **When a new chat message is added** (Microsoft Teams).
