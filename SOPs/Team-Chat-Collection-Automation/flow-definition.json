@@ -1,0 +1,221 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "$connections": {
+      "defaultValue": {},
+      "type": "Object"
+    },
+    "$authentication": {
+      "defaultValue": {},
+      "type": "SecureObject"
+    }
+  },
+  "triggers": {
+    "When_a_new_chat_message_is_added": {
+      "type": "OpenApiConnectionNotification",
+      "splitOn": "@triggerOutputs()?['body/value']",
+      "inputs": {
+        "host": {
+          "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+          "connectionName": "shared_teams",
+          "operationId": "OnNewChatMessage"
+        },
+        "parameters": {
+          "threadType": "groupchat",
+          "chatId": "REPLACE_WITH_CHAT_ID"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Get_message_body": {
+      "runAfter": {},
+      "type": "Compose",
+      "inputs": "@triggerBody()?['body']?['content']"
+    },
+    "Normalize_text": {
+      "runAfter": {
+        "Get_message_body": [
+          "Succeeded"
+        ]
+      },
+      "type": "Compose",
+      "inputs": "@replace(replace(replace(replace(replace(replace(replace(replace(outputs('Get_message_body'), '<br>', decodeUriComponent('%0A')), '<br/>', decodeUriComponent('%0A')), '<br />', decodeUriComponent('%0A')), '</div>', decodeUriComponent('%0A')), '</p>', decodeUriComponent('%0A')), '</span>', decodeUriComponent('%0A')), '&nbsp;', ' '), '&amp;', '&')"
+    },
+    "Is_collection_message": {
+      "runAfter": {
+        "Normalize_text": [
+          "Succeeded"
+        ]
+      },
+      "type": "If",
+      "expression": {
+        "and": [
+          {
+            "contains": [
+              "@outputs('Normalize_text')",
+              "COLLECTION"
+            ]
+          },
+          {
+            "contains": [
+              "@outputs('Normalize_text')",
+              "Student Name:"
+            ]
+          }
+        ]
+      },
+      "actions": {
+        "Student_name": {
+          "runAfter": {},
+          "type": "Compose",
+          "inputs": "@trim(if(contains(last(split(first(split(outputs('Normalize_text'), 'Student Grade:')), 'Student Name:')), '<'), first(split(last(split(first(split(outputs('Normalize_text'), 'Student Grade:')), 'Student Name:')), '<')), last(split(first(split(outputs('Normalize_text'), 'Student Grade:')), 'Student Name:'))))"
+        },
+        "Student_grade": {
+          "runAfter": {},
+          "type": "Compose",
+          "inputs": "@trim(if(contains(last(split(first(split(outputs('Normalize_text'), 'Amount:')), 'Student Grade:')), '<'), first(split(last(split(first(split(outputs('Normalize_text'), 'Amount:')), 'Student Grade:')), '<')), last(split(first(split(outputs('Normalize_text'), 'Amount:')), 'Student Grade:'))))"
+        },
+        "Amount_text": {
+          "runAfter": {},
+          "type": "Compose",
+          "inputs": "@trim(if(contains(last(split(first(split(outputs('Normalize_text'), 'Exchange Rate:')), 'Amount:')), '<'), first(split(last(split(first(split(outputs('Normalize_text'), 'Exchange Rate:')), 'Amount:')), '<')), last(split(first(split(outputs('Normalize_text'), 'Exchange Rate:')), 'Amount:'))))"
+        },
+        "Exchange_rate_text": {
+          "runAfter": {},
+          "type": "Compose",
+          "inputs": "@trim(if(contains(last(split(first(split(outputs('Normalize_text'), 'Collection Channel:')), 'Exchange Rate:')), '<'), first(split(last(split(first(split(outputs('Normalize_text'), 'Collection Channel:')), 'Exchange Rate:')), '<')), last(split(first(split(outputs('Normalize_text'), 'Collection Channel:')), 'Exchange Rate:'))))"
+        },
+        "Collection_channel": {
+          "runAfter": {},
+          "type": "Compose",
+          "inputs": "@trim(if(contains(last(split(first(split(outputs('Normalize_text'), 'Date Of Collection:')), 'Collection Channel:')), '<'), first(split(last(split(first(split(outputs('Normalize_text'), 'Date Of Collection:')), 'Collection Channel:')), '<')), last(split(first(split(outputs('Normalize_text'), 'Date Of Collection:')), 'Collection Channel:'))))"
+        },
+        "Date_of_collection": {
+          "runAfter": {},
+          "type": "Compose",
+          "inputs": "@trim(if(contains(last(split(outputs('Normalize_text'), 'Date Of Collection:')), '<'), first(split(last(split(outputs('Normalize_text'), 'Date Of Collection:')), '<')), last(split(outputs('Normalize_text'), 'Date Of Collection:'))))"
+        },
+        "Bank_slip_link": {
+          "runAfter": {},
+          "type": "Compose",
+          "inputs": "@if(greater(length(coalesce(triggerBody()?['attachments'], json('[]'))), 0), coalesce(first(triggerBody()?['attachments'])?['contentUrl'], 'MISSING - attachment had no link'), 'MISSING - no file attached, follow up with sender')"
+        },
+        "Numbers_are_valid": {
+          "runAfter": {
+            "Student_name": [
+              "Succeeded"
+            ],
+            "Student_grade": [
+              "Succeeded"
+            ],
+            "Amount_text": [
+              "Succeeded"
+            ],
+            "Exchange_rate_text": [
+              "Succeeded"
+            ],
+            "Collection_channel": [
+              "Succeeded"
+            ],
+            "Date_of_collection": [
+              "Succeeded"
+            ],
+            "Bank_slip_link": [
+              "Succeeded"
+            ]
+          },
+          "type": "If",
+          "expression": {
+            "and": [
+              {
+                "equals": [
+                  "@isFloat(outputs('Amount_text'))",
+                  true
+                ]
+              },
+              {
+                "equals": [
+                  "@isFloat(outputs('Exchange_rate_text'))",
+                  true
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "Add_a_row_into_a_table": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_excelonlinebusiness",
+                  "connectionName": "shared_excelonlinebusiness",
+                  "operationId": "AddRowV2"
+                },
+                "parameters": {
+                  "source": "REPLACE_WITH_SITE_OR_ME",
+                  "drive": "REPLACE_WITH_DRIVE_ID",
+                  "file": "REPLACE_WITH_FILE_ID",
+                  "table": "CollectionsTable",
+                  "item": {
+                    "Student Name": "@outputs('Student_name')",
+                    "Student Grade": "@outputs('Student_grade')",
+                    "Amount": "@float(outputs('Amount_text'))",
+                    "Exchange Rate": "@float(outputs('Exchange_rate_text'))",
+                    "Collection Channel": "@outputs('Collection_channel')",
+                    "Date Of Collection": "@outputs('Date_of_collection')",
+                    "Bank Slip Screenshot Link": "@outputs('Bank_slip_link')"
+                  }
+                }
+              }
+            },
+            "Post_confirmation": {
+              "runAfter": {
+                "Add_a_row_into_a_table": [
+                  "Succeeded"
+                ]
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+                  "connectionName": "shared_teams",
+                  "operationId": "PostMessageToConversation"
+                },
+                "parameters": {
+                  "poster": "Flow bot",
+                  "location": "Group chat",
+                  "body/recipient": "REPLACE_WITH_CHAT_ID",
+                  "body/messageBody": "<p>Logged to tracker: @{outputs('Student_name')} (@{outputs('Student_grade')}) - @{outputs('Amount_text')} via @{outputs('Collection_channel')} on @{outputs('Date_of_collection')}</p>"
+                }
+              }
+            }
+          },
+          "else": {
+            "actions": {
+              "Post_validation_warning": {
+                "runAfter": {},
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams",
+                    "connectionName": "shared_teams",
+                    "operationId": "PostMessageToConversation"
+                  },
+                  "parameters": {
+                    "poster": "Flow bot",
+                    "location": "Group chat",
+                    "body/recipient": "REPLACE_WITH_CHAT_ID",
+                    "body/messageBody": "<p>NOT logged - could not read Amount / Exchange Rate as numbers. Amount read as '@{outputs('Amount_text')}', Exchange Rate read as '@{outputs('Exchange_rate_text')}'. Please repost using the COLLECTION template.</p>"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "outputs": {}
+}
