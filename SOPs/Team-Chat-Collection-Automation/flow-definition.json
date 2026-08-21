@@ -23,7 +23,7 @@
         },
         "parameters": {
           "threadType": "groupchat",
-          "chatId": "REPLACE_WITH_CHAT_ID"
+          "chatId": "19:9f606e30d4f242fabd0fc2fe3d9051d9@thread.v2"
         }
       }
     }
@@ -154,8 +154,8 @@
                   "operationId": "AddRowV2"
                 },
                 "parameters": {
-                  "source": "REPLACE_WITH_SITE_OR_ME",
-                  "drive": "REPLACE_WITH_DRIVE_ID",
+                  "source": "https://msholdings.sharepoint.com/sites/YangonAmericanProjects-Finance",
+                  "drive": "b!K0irUykIIkukK4sc5aPfOcogzI05kV9Ai1ZiHyyIZM-6FibksDliTrELrt9PBvlF",
                   "file": "REPLACE_WITH_FILE_ID",
                   "table": "CollectionsTable",
                   "item": {
@@ -186,7 +186,7 @@
                 "parameters": {
                   "poster": "Flow bot",
                   "location": "Group chat",
-                  "body/recipient": "REPLACE_WITH_CHAT_ID",
+                  "body/recipient": "19:9f606e30d4f242fabd0fc2fe3d9051d9@thread.v2",
                   "body/messageBody": "<p>Logged to tracker: @{outputs('Student_name')} (@{outputs('Student_grade')}) - @{outputs('Amount_text')} via @{outputs('Collection_channel')} on @{outputs('Date_of_collection')}</p>"
                 }
               }
@@ -206,7 +206,7 @@
                   "parameters": {
                     "poster": "Flow bot",
                     "location": "Group chat",
-                    "body/recipient": "REPLACE_WITH_CHAT_ID",
+                    "body/recipient": "19:9f606e30d4f242fabd0fc2fe3d9051d9@thread.v2",
                     "body/messageBody": "<p>NOT logged - could not read Amount / Exchange Rate as numbers. Amount read as '@{outputs('Amount_text')}', Exchange Rate read as '@{outputs('Exchange_rate_text')}'. Please repost using the COLLECTION template.</p>"
                   }
                 }

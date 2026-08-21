@@ -49,15 +49,22 @@ Rules to communicate to the team:
 
 ---
 
-## 3. Collect three values before you start
+## 3. Values already wired into the package
 
-You will need these to finish either build path. Get them now.
+These are pre-filled in `Collections-Chat-to-Excel-Flow.zip` and `flow-definition.json` — no need to look them up.
 
-| Value | Where to find it |
+| Value | Setting |
 |---|---|
-| **Chat ID** | In Teams, open the group chat → **⋯ → Copy link**. The link contains `19:...@thread.v2` — that whole string is the chat ID. |
-| **Excel file location** | The SharePoint site or OneDrive folder holding the tracker. You'll pick this from a dropdown, so just know where it is. |
-| **Table name** | `CollectionsTable` — already set in the template, no need to change it. |
+| **Group chat** | *Finance & YA Ambassadors and Admissions* — `19:9f606e30d4f242fabd0fc2fe3d9051d9@thread.v2` |
+| **SharePoint site** | `https://msholdings.sharepoint.com/sites/YangonAmericanProjects-Finance` |
+| **Document library (drive ID)** | `b!K0irUykIIkukK4sc5aPfOcogzI05kV9Ai1ZiHyyIZM-6FibksDliTrELrt9PBvlF` — the site's `Shared Documents` library |
+| **Table name** | `CollectionsTable` |
+
+**One placeholder is left: `REPLACE_WITH_FILE_ID`.** It can't be pre-filled because the file ID doesn't exist until the tracker is uploaded. Upload `Collection-Tracker-Template.xlsx` to the `Finance` folder of that site first, then pick it from the **File** dropdown on the *Add a row into a table* action — the designer fills the ID in for you.
+
+> Change the site or library if you'd rather the tracker lived elsewhere. This one was chosen because it's the active Yangon American finance library (its `AIPL_Invoice Request & Payment Tracker` is edited regularly) and it matches the chat above.
+>
+> Note there is already an `AIPL_Invoice Request & Payment Tracker (7).xlsx` in `Finance/T&C and Receipt Attachments/`. The flow deliberately does **not** write to it — its columns don't match, and pointing automation at a live hand-maintained file risks corrupting it. Keep collections in their own tracker and reconcile periodically.
 
 ---
 
@@ -71,17 +78,13 @@ You will need these to finish either build path. Get them now.
    - **Microsoft Teams** → select an existing connection, or **Create new** and sign in.
    - **Excel Online (Business)** → same.
 5. Click **Import**. The flow is created but **switched off** and still has placeholders.
-6. Open the flow → **Edit**, and replace every placeholder value:
+6. Open the flow → **Edit**. Only one field needs filling:
 
    | Where | Placeholder | Replace with |
    |---|---|---|
-   | Trigger *When a new chat message is added* | `REPLACE_WITH_CHAT_ID` | your group chat (pick from the dropdown — don't paste the ID if a dropdown appears) |
-   | *Add a row into a table* → Location | `REPLACE_WITH_SITE_OR_ME` | the SharePoint site, or *OneDrive for Business* |
-   | *Add a row into a table* → Document Library | `REPLACE_WITH_DRIVE_ID` | the library holding the tracker |
-   | *Add a row into a table* → File | `REPLACE_WITH_FILE_ID` | `Collection-Tracker-Template.xlsx` |
-   | Both *Post message* actions → Group chat | `REPLACE_WITH_CHAT_ID` | the same group chat |
+   | *Add a row into a table* → **File** | `REPLACE_WITH_FILE_ID` | pick `Collection-Tracker-Template.xlsx` from the dropdown |
 
-   The Table field should already read `CollectionsTable`; if it shows as a text box rather than a dropdown, re-pick it from the dropdown after the file is set so the column mapping binds correctly.
+   The chat, site, and library are already set (§3). Then re-pick **Table** from its dropdown so it reads `CollectionsTable` — even though the value is already correct, re-selecting it makes the designer bind the column mapping. Confirm all seven columns still show their expressions afterwards.
 7. **Save**, then **turn the flow on**.
 8. Run the tests in §6 before telling the team to use it.
 
@@ -205,5 +208,11 @@ Delete the test rows when done.
 Honest status, so nobody assumes more than was actually tested:
 
 - **Verified by simulation:** the text-extraction and guard logic in §5. Every expression was replicated exactly and run against the four HTML wrappers Teams is known to emit for a typed multi-line message (`<br>`-separated inside `<p>`, one `<div>` per line, plain newlines, and `<div>`+`<span>` nesting). All four return the correct seven values; a casual message is correctly ignored.
-- **Not verified:** the flow has never been imported or executed in a live tenant, because building it required Power Automate write access that wasn't available. Specifically unconfirmed: that the `.zip` matches your tenant's current importer, and that the connector operation IDs (`OnNewChatMessage`, `AddRowV2`, `PostMessageToConversation`) match your connector versions. If any of these mismatch, path B sidesteps all of them — the designer picks the operation IDs for you.
+- **Read from the tenant, not guessed:** the chat ID, SharePoint site, and drive ID in §3 were resolved by read-only lookup against the real tenant, so they refer to things that exist. Which chat collections actually get posted in was confirmed by the process owner, not inferred.
+- **Not verified:** the flow has never been imported or executed in a live tenant, because building it required Power Automate write access that wasn't available. Specifically unconfirmed:
+  - that the `.zip` matches your tenant's current importer;
+  - that the connector operation IDs (`OnNewChatMessage`, `AddRowV2`, `PostMessageToConversation`) match your connector versions;
+  - that the Excel action accepts the site URL / drive ID in exactly the form written here — the connector is picky about the `source` and `drive` parameter formats, and if it objects, just re-pick Location and Document Library from their dropdowns.
+
+  If any of these mismatch, path B sidesteps all of them, because the designer chooses the operation IDs and parameter formats for you.
 - **Therefore:** treat §6 as mandatory, not optional.
