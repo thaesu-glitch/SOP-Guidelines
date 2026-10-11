@@ -1,0 +1,8 @@
+Vendor,Type,RefNbr,Date,Currency,Branch,UnappliedBalance,Description,PONbr
+V001,Payment,PM000501,2026-09-20,USD,HQ,"2,000.00",Payment for INV-2026-0091 and INV-2026-0105,
+V001,Payment,PM000502,2026-09-25,USD,HQ,450.00,Sept settlement,
+V002,Prepayment,PP000601,2026-08-30,USD,HQ,"5,000.00",Advance for PO,PO000555
+V002,Debit Adj.,AD000701,2026-09-25,USD,HQ,250.00,Short delivery credit note,
+V003,Payment,PM000503,2026-09-28,SGD,HQ,300.00,Transfer,
+V004,Payment,PM000504,2026-10-03,USD,HQ,300.00,Batch pay,
+V005,Payment,PM000505,2026-10-03,USD,HQ,999.00,Unknown,
